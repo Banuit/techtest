@@ -1,0 +1,55 @@
+
+<mat-card class="my-card">
+  <mat-card-header>
+   
+    <mat-card-title>Registration</mat-card-title>
+    
+  </mat-card-header>
+   <mat-card-content>
+	  <form [formGroup]="registerForm" (submit)="submit()">
+		 <mat-form-field class="full-width">
+			<mat-label>Enter your First Name</mat-label>
+			 <input matInput formControlName="fname" required>
+			<mat-error *ngIf="registerForm.controls.fname.touched && registerForm.controls.fname.invalid">
+			  <span *ngIf="registerForm.controls.fname.errors.required">First name is mandatory.</span>
+			</mat-error>
+		 </mat-form-field>
+		 <mat-form-field class="full-width">
+			 <mat-label>Enter your Lastname</mat-label>
+			  <input matInput formControlName="lname" type="text">
+			  <mat-error *ngIf="registerForm.controls.lname.touched && registerForm.controls.lname.invalid">
+				 <span *ngIf="registerForm.controls.lname.errors.required">This field is mandatory.</span>
+			  </mat-error>
+		  </mat-form-field>
+		  <mat-form-field class="full-width">
+			<mat-label>Enter your email</mat-label>
+			 <input matInput formControlName="email" required>
+			<mat-error *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+			  <span *ngIf="registerForm.controls.email.errors.required">This field is mandatory.</span>
+			  <span *ngIf="registerForm.controls.email.errors.pattern">This field is invalid.</span>
+			</mat-error>
+		 </mat-form-field>
+		 <mat-form-field class="full-width">
+			 <mat-label>Enter your Mobile Number</mat-label>
+			  <input matInput  formControlName="mobile"  required>
+			  <mat-error *ngIf="registerForm.controls.mobile.touched && registerForm.controls.mobile.invalid">
+				 <span *ngIf="registerForm.controls.mobile.errors.required">This field is mandatory.</span>
+				 <span *ngIf="registerForm.controls.mobile.errors.pattern">This field is invalid. Enter in the format of +917898789890</span>
+			  </mat-error>
+		  </mat-form-field>
+		  <div class="full-width">
+			 <mat-label>Select your gender</mat-label>
+			  <mat-radio-group formControlName="gender">
+				<mat-radio-button value="male">Male</mat-radio-button>
+				<mat-radio-button value="female">Female</mat-radio-button>
+				<mat-radio-button value="others">Others</mat-radio-button>
+			  </mat-radio-group>
+			  <mat-error *ngIf="registerForm.controls.gender.touched && registerForm.controls.gender.invalid">
+				 <span *ngIf="registerForm.controls.gender.errors.required">This field is mandatory.</span>
+			  </mat-error>
+		  </div>
+		 <button mat-raised-button style="margin-left:30%; margin-bottom:3%;" color="primary" type="submit">Register Here</button>	
+	   </form>
+	</mat-card-content>
+   
+</mat-card>

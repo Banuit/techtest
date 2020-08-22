@@ -1,0 +1,30 @@
+import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+	
+  password: string;
+ 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  loginUser() {
+	console.log("hello");
+    const allInfo = 'My name is ${this.email}. My email is ${this.password}';
+    alert(allInfo); 
+  }
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+}

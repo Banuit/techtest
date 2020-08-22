@@ -1,0 +1,33 @@
+
+<mat-card class="my-card">
+  <mat-card-header>
+   
+    <mat-card-title>LOGIN</mat-card-title>
+    
+  </mat-card-header>
+  
+   <mat-card-content>
+      <form [formGroup]="loginForm" (submit)="submit()">
+         <mat-form-field class="full-width">
+			<mat-label>Enter your email</mat-label>
+			 <input matInput formControlName="email" required>
+			<mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+			  <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+			  <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+			</mat-error>
+		 </mat-form-field>
+		 <mat-form-field class="full-width">
+			 <mat-label>Enter your password</mat-label>
+			  <input matInput formControlName="password" type="password">
+			  <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+				 <span *ngIf="loginForm.controls.password.errors.required">This field is mandatory.</span>
+			  </mat-error>
+		  </mat-form-field>
+          <button mat-raised-button style="margin-left:30%; margin-bottom:3%;" color="primary" type="submit">Log In</button>
+      </form>
+   </mat-card-content>
+   <mat-card-actions>
+    
+     <button  mat-raised-button style=" margin-bottom:3%;" [routerLink]="'/register'" color="primary">Register Here</button>
+   </mat-card-actions>
+</mat-card>

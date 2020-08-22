@@ -1,0 +1,46 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import {MatInputModule} from  '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from  '@angular/material/datepicker';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatListModule} from '@angular/material/list';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    
+    RegistrationComponent,
+    LoginComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule, MatToolbarModule,FormsModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,MatRadioModule,ReactiveFormsModule,
+   
+    RouterModule.forRoot([
+		{ path: '', component:LoginComponent},
+		{ path: 'login', component:LoginComponent},
+		{ path: 'register', component:RegistrationComponent}, 
+    ]),
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

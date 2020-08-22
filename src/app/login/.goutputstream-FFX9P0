@@ -1,0 +1,18 @@
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+ 
+.full-width {
+  width: 100%;
+}
+
+.my-card{
+	width:40%;
+	margin-top:5%;
+	margin-left:30%;
+}
+.login-toolbar{
+	margin-left:40%;
+}
