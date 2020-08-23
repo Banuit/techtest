@@ -1,5 +1,6 @@
-
-<mat-card class="my-card">
+<div  class="bgm">
+<div style="height:10%;"></div>	
+<mat-card *ngIf="showcontent1" class="my-card">
   <mat-card-header>
    
     <mat-card-title>Registration</mat-card-title>
@@ -81,3 +82,75 @@
 	</mat-card-content>
    
 </mat-card>
+<mat-card *ngIf="showcontent2" class="my-card">
+     <mat-card-header>
+   
+    <mat-card-title>Profile Information</mat-card-title>
+    
+  </mat-card-header>
+  <hr>
+    <mat-card-content *ngIf="showcontent2">
+		
+		<table>
+		<thead>
+		<th>Field Name</th>
+		<th>Value</th>
+		</thead>
+		<tbody>
+		<tr >
+		<td>
+			First Name
+		</td>
+		<td>
+			{{dataSource.fname}}
+		</td>
+		
+		</tr>
+		<tr >
+		<td>
+			Last Name
+		</td>
+		<td>
+			{{dataSource.lname}}
+		</td>
+		
+		</tr>
+		<tr >
+		<td>
+			Email Address
+		</td>
+		<td>
+			{{dataSource.email}}
+		</td>
+		
+		</tr>
+		<tr >
+		<td>
+			Mobile Number
+		</td>
+		<td>
+			{{dataSource.mobile}}
+		</td>
+		
+		</tr>
+		<tr >
+		<td>
+			Address
+		</td>
+		<td>
+			{{dataSource.address}}
+		</td>
+		
+		</tr>
+		</tbody>
+		</table>  
+		
+		<div class="form-group">
+       <label for="file">Choose File</label>
+			<input type="file"
+				   id="file"
+				   (change)="handleFileInput($event.target.files)">
+		</div>
+    </mat-card-content>
+   </mat-card>
+</div>

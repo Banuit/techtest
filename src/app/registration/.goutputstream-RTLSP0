@@ -13,13 +13,4 @@
 	margin-top:5%;
 	margin-left:30%;
 }
-table
-{
-	border:1px solid black;
-	margin:0 auto;
-	
-}
-td
-{
-	border:1px solid black;
-}
+

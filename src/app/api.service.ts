@@ -23,5 +23,6 @@ export class ApiService {
 	public getUser(email){  
 		return this.httpClient.get(`${this.SERVER_URL}users?email=${email}`); 
 	}  
+
 	
 }

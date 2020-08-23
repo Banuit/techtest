@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
    showcontent2=false;
    displayedColumns: string[] = ['Field', 'Value'];
    dataSource;
+   
+
   constructor(
     private formBuilder: FormBuilder, private apiService: ApiService
   ) { }
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
 		this.showcontent2=true;
 	
   }
+  
    
   }
   
