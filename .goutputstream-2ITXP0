@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate": "node ./server/generateData.js > ./server/database.json",
+    "generate": "node ./server/generate.js > ./server/database.json",
     "server": "json-server --watch ./server/database.json"
   },
   "private": true,

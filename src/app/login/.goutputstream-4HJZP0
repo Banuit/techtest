@@ -1,12 +1,12 @@
 
-<mat-card *ngIf="showcontent1" class="my-card">
+<mat-card class="my-card">
   <mat-card-header>
    
     <mat-card-title>LOGIN</mat-card-title>
     
   </mat-card-header>
   
-   <mat-card-content>
+   <mat-card-content *ngIf="showcontent1">
       <form [formGroup]="loginForm" (submit)="submit()">
          <mat-form-field class="full-width">
 			<mat-label>Enter your email</mat-label>
@@ -26,69 +26,8 @@
           <button mat-raised-button style="margin-left:30%; margin-bottom:3%;" color="primary" type="submit">Log In</button>
       </form>
    </mat-card-content>
-  
-</mat-card>
-<mat-card *ngIf="showcontent2" class="my-card">
-     <mat-card-header>
-   
-    <mat-card-title>Profile Information</mat-card-title>
-    
-  </mat-card-header>
-  <hr>
     <mat-card-content *ngIf="showcontent2">
-		
-		<table>
-		<thead>
-		<th>Field Name</th>
-		<th>Value</th>
-		</thead>
-		<tbody>
-		<tr >
-		<td>
-			First Name
-		</td>
-		<td>
-			{{dataSource.fname}}
-		</td>
-		
-		</tr>
-		<tr >
-		<td>
-			Last Name
-		</td>
-		<td>
-			{{dataSource.lname}}
-		</td>
-		
-		</tr>
-		<tr >
-		<td>
-			Email Address
-		</td>
-		<td>
-			{{dataSource.email}}
-		</td>
-		
-		</tr>
-		<tr >
-		<td>
-			Mobile Number
-		</td>
-		<td>
-			{{dataSource.mobile}}
-		</td>
-		
-		</tr>
-		<tr >
-		<td>
-			Address
-		</td>
-		<td>
-			{{dataSource.address}}
-		</td>
-		
-		</tr>
-		</tbody>
-		</table>  
-    </mat-card-content>
-   </mat-card>
+		<p>profile section</p>
+   </mat-card-content>
+   
+</mat-card>

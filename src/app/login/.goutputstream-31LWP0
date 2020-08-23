@@ -10,14 +10,9 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 	loginForm: FormGroup;
   emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
-   users = [];
-   currentuser=null;
-   showcontent1=true;
-   showcontent2=false;
-   displayedColumns: string[] = ['Field', 'Value'];
-   dataSource;
+
   constructor(
-    private formBuilder: FormBuilder, private apiService: ApiService
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -32,15 +27,11 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
-   
-      this.apiService.getUser(this.loginForm.value.email).subscribe((data: any[])=>{  
-			
-			this.users = data; 
-			this.dataSource=this.users[0];
-		})  
-		this.showcontent1=false;
-		this.showcontent2=true;
-	
+    console.log(this.loginForm.value);
+    this.apiService.fetchData().subscribe((data: any[])=>{  
+			console.log(data);  
+			this.products = data;  
+	})  
   }
    
   }

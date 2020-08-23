@@ -14,8 +14,7 @@ export class LoginComponent implements OnInit {
    currentuser=null;
    showcontent1=true;
    showcontent2=false;
-   displayedColumns: string[] = ['Field', 'Value'];
-   dataSource;
+  
   constructor(
     private formBuilder: FormBuilder, private apiService: ApiService
   ) { }
@@ -34,13 +33,10 @@ export class LoginComponent implements OnInit {
     }
    
       this.apiService.getUser(this.loginForm.value.email).subscribe((data: any[])=>{  
-			
-			this.users = data; 
-			this.dataSource=this.users[0];
+			console.log(data);  
+			this.users = data;  
 		})  
-		this.showcontent1=false;
-		this.showcontent2=true;
-	
+		
   }
    
   }

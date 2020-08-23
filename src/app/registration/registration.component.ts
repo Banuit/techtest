@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmedValidator } from './confirmed.validator';
 @Component({
@@ -10,8 +11,9 @@ export class RegistrationComponent implements OnInit {
   registerForm: FormGroup;
   emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
   mobileRegx = /^((\+){1}91){1}[1-9]{1}[0-9]{9}$/;
+  submitted = false;
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder, private apiService: ApiService
   ) { }
 
   ngOnInit() {
@@ -28,6 +30,7 @@ export class RegistrationComponent implements OnInit {
     }, { 
       validator: ConfirmedValidator('password', 'confirmpassword')
     })
+    
   }
   get f(){
     return this.registerForm.controls;
@@ -36,6 +39,15 @@ export class RegistrationComponent implements OnInit {
     if (!this.registerForm.valid) {
       return;
     }
-    console.log(this.registerForm.value);
+    console.log(this.registerForm.value.email);
+    this.apiService.create(this.registerForm.value)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.submitted = true;
+        },
+        error => {
+          console.log(error);
+        });
   }
 }
