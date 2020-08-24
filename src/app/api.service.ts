@@ -20,8 +20,8 @@ export class ApiService {
 		return this.httpClient.get('http://localhost:3000/users?email=${email}');
 		
 	}
-	public getUser(email){  
-		return this.httpClient.get(`${this.SERVER_URL}users?email=${email}`); 
+	public getUser(email, password){  
+		return this.httpClient.get(`${this.SERVER_URL}users?email=${email}&password=${password}`); 
 	}  
 
 	

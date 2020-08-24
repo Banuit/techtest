@@ -1,10 +1,6 @@
 <div  class="bgm">
 <div style="height:20%;"></div>	
-<div style="color:red; text-align:center;" *ngIf="validateemail">
-		   invalid username or password
-	   </div>
 <mat-card *ngIf="showcontent1" class="my-card">
-	
   <mat-card-header>
    
     <mat-card-title>LOGIN</mat-card-title>
@@ -12,7 +8,9 @@
   </mat-card-header>
   
    <mat-card-content>
-	   
+	   <div>
+		   invalid username or password
+	   </div>
       <form [formGroup]="loginForm" (submit)="submit()">
          <mat-form-field class="full-width">
 			<mat-label>Enter your email</mat-label>
@@ -34,8 +32,7 @@
    </mat-card-content>
   
 </mat-card>
-<p *ngIf="showcontent3"  style="color:black; margin-top: 5%; margin-left:43%; font-size:15px; color: red;">New User?  <a href="/register"> Register here</a></p>
-
+<p style="color:black; margin-top: 5%; margin-left:43%; font-size:15px; color: red;">New User?  <a href="/register"> Register here</a></p>
 <mat-card *ngIf="showcontent2" class="my-card">
      <mat-card-header>
    

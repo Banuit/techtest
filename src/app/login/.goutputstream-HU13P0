@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
    displayedColumns: string[] = ['Field', 'Value'];
    dataSource;
    validateemail=false;
-   showcontent3=true;
 
   constructor(
     private formBuilder: FormBuilder, private apiService: ApiService
@@ -36,25 +35,23 @@ export class LoginComponent implements OnInit {
       return;
     }
    
-      this.apiService.getUser(this.loginForm.value.email, this.loginForm.value.password).subscribe((data: any[])=>{  
+      this.apiService.getUser(this.loginForm.value.email).subscribe((data: any[])=>{  
 			
 			this.users = data; 
 			this.dataSource=this.users[0];
-			
+			if(this.users[0].email!=loginForm.value.email || this.users[0].password!=loginForm.value.password)
+			{
+				this.validateemail=true;
+			}
 		})  
-		
-		
-		if(this.users[0] == undefined || this.users[0].length == 0)
-		{
-			this.validateemail=true;
-		}
+		if(this.users[0].email!=loginForm.value.email || this.users[0].password!=loginForm.value.password)
+			{
+				this.validateemail=true;
+			}
 		else
 		{
 			this.showcontent1=false;
 			this.showcontent2=true;
-			this.validateemail=false;
-			this.showcontent3=false;
-			
 		}
 	
   }
