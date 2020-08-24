@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Run the Backend server
 
-Run `ng run server` to run the backend server to interact with the api's
+Run `npm run server` to run the backend server to interact with the api's
 
 ## Build
 
